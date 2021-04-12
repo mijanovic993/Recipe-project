@@ -1,0 +1,34 @@
+<h2>Recipe Details</h2>
+<br />
+<div class="row" *ngIf="recipe">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ recipe.name }} - source: {{ recipe.source }}
+        </h5>
+        <div *ngFor="let ingredient of recipe.ingredients">
+          <p class="card-text">
+            {{ ingredient.name }} - Amount:
+            {{ ingredient.amount }}
+          </p>
+        </div>
+        <p class="card-text">{{ recipe.preparationTime | preparationTime }}</p>
+
+        <a class="btn btn-danger" (click)="onDeleteRecipe()"
+          >Delete ingredient</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Recipe instructions</h5>
+        <p class="card-text">
+          {{ recipe.instructions }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
